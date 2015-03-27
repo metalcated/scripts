@@ -2,7 +2,7 @@
 #######################################################################
 ##
 ## Title:       Automated Network Configuration Change Script
-## Author:      Mike Gomon aka metalcated
+## Author:      Mike G. aka metalcated
 ## Date:        03/25/2015
 ## Version:     0.2
 ##
