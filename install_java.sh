@@ -5,7 +5,7 @@
 ##
 ## Date: 03/27/2015
 ##
-## Author: Mike Gomon aka metalcated and partially forked from n0ts
+## Author: Mike G. aka metalcated and partially forked from n0ts
 ##
 ## Version: 1.0
 ##
