@@ -29,11 +29,10 @@ logfile="/var/log/net-config.log"
 active_nic=$(/sbin/route -n | grep "^0.0.0.0" | rev | cut -d' ' -f1 | rev)
 
 # set eth# config
-#active_conf=/etc/sysconfig/network-scripts/ifcfg-${active_nic}
-active_conf=/usr/scripts/ifcfg-${active_nic}
+active_conf=/etc/sysconfig/network-scripts/ifcfg-${active_nic}
 
 # location of resolv.conf
-resolv_conf=/usr/scripts//resolv.conf
+resolv_conf=/etc/resolv.conf
 
 # make a backup of the existing configs
 \cp -rp $active_conf ${active_conf}_backup
