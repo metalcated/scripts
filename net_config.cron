@@ -1,1 +1,1 @@
-* * * * * root /usr/scripts/net-config.sh
+*/10 * * * * root /usr/scripts/net-config.sh
