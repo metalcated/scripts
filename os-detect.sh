@@ -2,7 +2,7 @@
 #####################################################################
 ##
 ## Title:       Detect OS Distro and Version
-## Author:      Mike Gomon <michael.gomon@iii.com>
+## Author:      Mike Gomon aka metalcated
 ## Date:        04/25/2015
 ## Version:     0.3
 ##
