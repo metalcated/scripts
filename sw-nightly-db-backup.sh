@@ -6,7 +6,7 @@
 ## Date:        11/05/2015
 ## Version:     0.1
 ##
-## Changelog:   0.1 - Initial Release (after many bug fixes!)
+## Changelog:   0.1 - Initial Release
 ###################################################################################
 
 # how many days to keep backups for
