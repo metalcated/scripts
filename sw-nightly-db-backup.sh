@@ -2,7 +2,8 @@
 ###################################################################################
 ##
 ## Title:       Spacewalk Nightly Database Backup Script
-## Author:      metalcated <metalcated at gm@il com>
+## Author:      metalcated <metalcated at gm@il com> & justin edmands
+## Source:      http://www.justinedmands.com/?q=spacewalkschemabackup
 ## Date:        11/05/2015
 ## Version:     0.1
 ##
