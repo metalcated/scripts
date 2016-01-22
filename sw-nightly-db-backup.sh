@@ -31,6 +31,7 @@ echo -e "[\e[32mSpacewalk Backup\e[0m]: starting postgresql service"
 if [[ ! -d $backupdir ]]; then
         echo -e "[\e[31mSpacewalk Backup\e[0m]: faild to find target backup directory: $backupdir"
         mkdir -p $backupdir
+        chown -R postgres: $backupdir
         if [[ -d $backupdir ]]; then
                 echo -e "[\e[32mSpacewalk Backup\e[0m]: $backupdir created"
         else
