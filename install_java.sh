@@ -5,7 +5,7 @@
 ##
 ## Date: 03/27/2015
 ## Author: Mike G. aka metalcated and partially forked from n0ts
-## Version: 1.0
+## Version: 0.2
 ##
 ## Changelog: 0.1 - Initial Release
 ##            0.2 - Fixed dupe download issue
