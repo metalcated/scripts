@@ -8,6 +8,7 @@
 ## Version: 1.0
 ##
 ## Changelog: 0.1 - Initial Release
+##            0.2 - Fixed dupe download issue
 ##
 ## Usage: ./install_java.sh <jre|jdk_version> <rpm|tar>
 ##
@@ -48,7 +49,7 @@ fi
 
 # set download url
 DOWNLOAD_URL3="$(echo ${URL}${DOWNLOAD_URL2}|awk -F\" {'print $1'})"
-DOWNLOAD_URL4=$(curl -s "$DOWNLOAD_URL3" | egrep -o "http\:\/\/download.oracle\.com\/otn-pub\/java\/jdk\/[7-8]u[0-9]+\-(.*)+\/${JAVA_TYPE}-[7-8]u[0-9]+(.*)linux-x64.${EXT}")
+DOWNLOAD_URL4=$(curl -s "$DOWNLOAD_URL3" | egrep -o "http\:\/\/download.oracle\.com\/otn-pub\/java\/jdk\/[7-8]u[0-9]+\-(.*)+\/${JAVA_TYPE}-[7-8]u[0-9]+(.*)linux-x64.${EXT}"|tail -n1)
 
 # check to make sure url exists
 if [[ -z "$DOWNLOAD_URL4" ]]; then
