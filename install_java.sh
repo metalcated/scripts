@@ -29,7 +29,7 @@ if [[ -n "$1" ]]; then
   fi
 fi
 
-# set download extention
+# set download extension
 if [[ -n "$2" ]]; then
   if [[ "$2" == "tar" ]]; then
     EXT="tar.gz"

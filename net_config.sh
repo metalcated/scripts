@@ -45,7 +45,7 @@ if [[ "$?" = 1 ]]; then
         status="Failed"
         exit 0
 else
-        echo -e "$(date)\nBackup of ${active_conf}_backup suceeded, making changes.\n" >> $logfile
+        echo -e "$(date)\nBackup of ${active_conf}_backup succeeded, making changes.\n" >> $logfile
         # change ip address
         if [[ "$ip_addr" != "" ]]; then
                 sed -ri "s/(IPADDR=)[^=]*$/\1${ip_addr}/" $active_conf
@@ -77,7 +77,7 @@ else
                 sed -ri "s/(DOMAIN=)[^=]*$/\1${domain}/" $active_conf
         fi
         cat $active_conf >> $logfile
-        status="Suceeded"
+        status="Succeeded"
 fi
 
 # change resolv.conf
@@ -87,7 +87,7 @@ if [[ "$?" = 1 ]]; then
         status="Failed"
         exit 0
 else
-        echo -e "$(date)\nBackup of ${resolv_conf}_backup suceeded, making changes.\n" >> $logfile
+        echo -e "$(date)\nBackup of ${resolv_conf}_backup succeeded, making changes.\n" >> $logfile
         # change domain
         if [[ "$domain" != "" ]]; then
                 sed -ri "s/(search)[^=]*$/\1 ${domain}/" $resolv_conf
@@ -100,11 +100,11 @@ else
         if [[ "$dns2" != "" ]]; then
                 sed -ri "s/(nameserver)[^=]*$/\1 ${dns2}/" $resolv_conf
         fi
-        status="Suceeded"
+        status="Succeeded"
 fi
 
 # remove cronjob
-if [[ "$status" = "Suceeded" ]]; then
+if [[ "$status" = "Succeeded" ]]; then
         rm -rf /etc/cron.d/net-config
         ls /etc/cron.d/net-config > /dev/null 2>&1
         if [[ "$?" = 1 ]]; then
