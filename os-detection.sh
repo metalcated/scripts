@@ -20,6 +20,13 @@ if [[ $EUID -ne 0 ]]; then
    exit $?
 fi
 
+while getopts v opt; do
+  case $opt in
+    v) echo ${ver} ;;
+    *) echo -e "\n[dns] invalid or missing argument\n";exit $? ;;
+  esac
+done
+
 # install lsb_release depending on os
 if [[ -z $(rpm -qa|grep redhat-lsb) ]]; then
         # install lsb_release
@@ -49,10 +56,3 @@ fi
 
 # uncomment to see results
 #echo $os $os_ver $arch
-
-while getopts v opt; do
-  case $opt in
-    v) echo ${ver} ;;
-    *) echo -e "\n[dns] invalid or missing argument\n";exit $? ;;
-  esac
-done
