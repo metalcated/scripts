@@ -3,14 +3,16 @@
 ##
 ## Title:       Detect OS Distro and Version
 ## Author:      metalcated
-## Date:        04/25/2015
-## Version:     0.3
+## Date:        08/20/2015
+## Version:     0.4
 ##
 ## Changelog:   0.1 - Initial Release
 ##              0.2 - Added arch detection
 ##              0.3 - rebuilt detection based on lsb_release
+##              0.4 - added version output
 ##
 ######################################################################
+ver=0.4
 
 # exit if not root
 if [[ $EUID -ne 0 ]]; then
@@ -47,3 +49,10 @@ fi
 
 # uncomment to see results
 #echo $os $os_ver $arch
+
+while getopts v opt; do
+  case $opt in
+    v) echo version:${ver} ;;
+    *) echo -e "\n[dns] invalid or missing argument\n";exit $? ;;
+  esac
+done
