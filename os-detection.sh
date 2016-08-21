@@ -22,7 +22,7 @@ fi
 
 while getopts v opt; do
   case $opt in
-    v) echo ${ver} ;;
+    v) echo ${ver};exit $? ;;
     *) echo -e "\ninvalid or missing argument\n";exit $? ;;
   esac
 done
