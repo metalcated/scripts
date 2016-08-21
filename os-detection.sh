@@ -22,9 +22,9 @@ fi
 if [[ -z $(rpm -qa|grep redhat-lsb) ]]; then
         # install lsb_release
         if [[ -f /usr/bin/dnf ]]; then
-                /usr/bin/dnf install redhat-lsb-core
+                /usr/bin/dnf install redhat-lsb-core -y
         elif [[ -f /usr/bin/yum ]]; then
-                /usr/bin/yum install redhat-lsb-core
+                /usr/bin/yum install redhat-lsb-core -y
         elif [[ -f /usr/sbin/up2date ]]; then
                 /usr/sbin/up2date -i -f redhat-lsb
         fi
