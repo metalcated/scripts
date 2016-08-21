@@ -52,7 +52,7 @@ fi
 
 while getopts v opt; do
   case $opt in
-    v) echo version:${ver} ;;
+    v) echo ${ver} ;;
     *) echo -e "\n[dns] invalid or missing argument\n";exit $? ;;
   esac
 done
