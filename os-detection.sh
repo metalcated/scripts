@@ -28,7 +28,7 @@ while getopts v opt; do
 done
 
 # install lsb_release depending on os
-if [[ -z $(rpm -qa|grep redhat-lsb) ]]; then
+if [[ -z $(which lsb_release) ]]; then
         # install lsb_release
         if [[ -f /usr/bin/dnf ]]; then
                 /usr/bin/dnf install redhat-lsb-core -y
