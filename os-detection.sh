@@ -42,7 +42,7 @@ fi
 # distro
 export os=$(lsb_release -si)
 if [[ -n $(echo $os|grep Red) ]]; then
-        os="RHEL"
+        export os="RHEL"
 fi
 
 # version
