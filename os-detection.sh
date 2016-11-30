@@ -4,15 +4,16 @@
 ## Title:       Detect OS Distro and Version
 ## Author:      metalcated
 ## Date:        08/20/2015
-## Version:     0.4
+## Version:     0.5
 ##
 ## Changelog:   0.1 - Initial Release
 ##              0.2 - Added arch detection
 ##              0.3 - rebuilt detection based on lsb_release
 ##              0.4 - added version output
+##              0.5 - updated package name for redhat-lsb
 ##
 ######################################################################
-ver=0.4
+ver=0.5
 
 # exit if not root
 if [[ $EUID -ne 0 ]]; then
@@ -31,9 +32,9 @@ done
 if [[ -z $(which lsb_release) ]]; then
         # install lsb_release
         if [[ -f /usr/bin/dnf ]]; then
-                /usr/bin/dnf install redhat-lsb-core -y
+                /usr/bin/dnf install redhat-lsb -y
         elif [[ -f /usr/bin/yum ]]; then
-                /usr/bin/yum install redhat-lsb-core -y
+                /usr/bin/yum install redhat-lsb -y
         elif [[ -f /usr/sbin/up2date ]]; then
                 /usr/sbin/up2date -i -f redhat-lsb
         fi
