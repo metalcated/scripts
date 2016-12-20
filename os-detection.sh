@@ -4,16 +4,17 @@
 ## Title:       Detect OS Distro and Version
 ## Author:      metalcated
 ## Date:        08/20/2015
-## Version:     0.5
+## Version:     0.6
 ##
 ## Changelog:   0.1 - Initial Release
 ##              0.2 - Added arch detection
 ##              0.3 - rebuilt detection based on lsb_release
 ##              0.4 - added version output
 ##              0.5 - updated package name for redhat-lsb
+##              0.6 - updated to support OEL (Oracle EL)
 ##
 ######################################################################
-ver=0.5
+ver=0.6
 
 # exit if not root
 if [[ $EUID -ne 0 ]]; then
@@ -42,7 +43,7 @@ fi
 
 # distro
 export os=$(lsb_release -si)
-if [[ -n $(echo $os|grep Red) ]]; then
+if [[ -n $(echo $os|grep 'Red\|EnterpriseEnterpriseServer') ]]; then
         export os="RHEL"
 fi
 
