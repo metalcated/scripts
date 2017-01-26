@@ -57,7 +57,7 @@ if [[ -z "$DOWNLOAD_URL4" ]]; then
   exit 1
 fi
 # set download file name
-JAVA_INSTALL=$(echo $DOWNLOAD_URL4|cut -d "/" -f 8)
+JAVA_INSTALL=$(basename $DOWNLOAD_URL4)
 
 if [[ "$EXT" == "rpm" ]]; then
 
@@ -65,7 +65,7 @@ if [[ "$EXT" == "rpm" ]]; then
         echo -e "\n\e[32mDownloading\e[0m: $DOWNLOAD_URL4"
         while true;
         do echo -n .;sleep 1;done &
-        cd /tmp; wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" $DOWNLOAD_URL4 > /dev/null 2>&1
+        cd /tmp; wget -q --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" $DOWNLOAD_URL4 -O $JAVA_INSTALL > /dev/null 2>&1
         kill $!; trap 'kill $!' SIGTERM;
         # install rpm
         echo -e "\n\e[32mInstalling\e[0m: $JAVA_INSTALL\r"
@@ -100,7 +100,7 @@ elif [[ "$EXT" == "tar" || "$EXT" == "tar.gz" ]]; then
         echo -e "\n\e[32mDownloading\e[0m: $DOWNLOAD_URL4"
         while true;
         do echo -n .;sleep 1;done &
-        cd /opt; wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" $DOWNLOAD_URL4 > /dev/null 2>&1
+        cd /opt; wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" $DOWNLOAD_URL4  -O $JAVA_INSTALL > /dev/null 2>&1
         kill $!; trap 'kill $!' SIGTERM;
         # extract the tar
         echo -e "\n\e[32mExtracting\e[0m: $JAVA_INSTALL\r"
