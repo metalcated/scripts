@@ -2,7 +2,7 @@
 
 # BEFORE RUNNING THIS SCRIPT
 #
-# 1) log into UI, rename the default capsule under infrastructure->smart proxues and any other location that is using the hostname (domains?) to the new hostname in both the name and url fields
+# 1) log into UI, rename the default capsule under infrastructure->smart proxies and any other location that is using the hostname (domains?) to the new hostname in both the name and url fields
 #
 # 2) update NEW_HOSTNAME variable below
 #
