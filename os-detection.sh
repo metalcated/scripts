@@ -14,7 +14,7 @@
 ##              0.6 - updated to support OEL (Oracle EL)
 ##
 ######################################################################
-ver=0.6
+#ver=0.6
 
 # exit if not root
 if [[ $EUID -ne 0 ]]; then
