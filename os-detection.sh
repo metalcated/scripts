@@ -1,10 +1,10 @@
 #!/bin/bash
-#####################################################################
+############################################################################
 ##
 ## Title:       Detect OS Distro and Version
 ## Author:      metalcated
 ## Date:        08/20/2015
-## Version:     0.6
+## Version:     0.7
 ##
 ## Changelog:   0.1 - Initial Release
 ##              0.2 - Added arch detection
@@ -12,22 +12,16 @@
 ##              0.4 - added version output
 ##              0.5 - updated package name for redhat-lsb
 ##              0.6 - updated to support OEL (Oracle EL)
+##              0.7 - removed version output due to issues with other scripts
 ##
-######################################################################
-#ver=0.6
+#############################################################################
+ver=0.7
 
 # exit if not root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 1>&2
    exit $?
 fi
-
-while getopts v opt; do
-  case $opt in
-    v) echo ${ver};exit $? ;;
-    *) echo -e "\ninvalid or missing argument\n";exit $? ;;
-  esac
-done
 
 # install lsb_release depending on os
 if [[ -z $(which lsb_release) ]]; then
