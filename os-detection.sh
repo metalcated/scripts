@@ -45,6 +45,8 @@ fi
 export os=$(lsb_release -si)
 if [[ -n $(echo $os|grep 'Red\|EnterpriseEnterpriseServer') ]]; then
         export os="RHEL"
+elif [[ -n $(echo $os|grep -i 'OEL\|Oracle') ]]; then
+        export os="OracleLinux"
 fi
 
 # version
