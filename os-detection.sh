@@ -4,7 +4,7 @@
 ## Title:       Detect OS Distro and Version
 ## Author:      metalcated
 ## Date:        08/20/2015
-## Version:     0.7
+## Version:     0.8
 ##
 ## Changelog:   0.1 - Initial Release
 ##              0.2 - Added arch detection
