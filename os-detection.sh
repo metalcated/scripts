@@ -24,27 +24,34 @@ if [[ $EUID -ne 0 ]]; then
    exit $?
 fi
 
+run_lsb_rls()
+{
+        # install lsb_release
+        if [[ -f /usr/bin/dnf ]]; then
+                /usr/bin/dnf install redhat-lsb -y
+        elif [[ -f /usr/bin/yum ]]; then
+                /usr/bin/yum install redhat-lsb -y
+        elif [[ -f /usr/sbin/up2date ]]; then
+                /usr/sbin/up2date -i -f redhat-lsb
+        fi
+        # distro
+        export os=$(lsb_release -si)
+        # version
+        export os_ver=$(lsb_release -sr|cut -d. -f1)
+        # arch
+        if [[ -n $(lsb_release -s|grep amd64) ]]; then
+                export arch="x86_64"
+        else
+                export arch="i386"
+        fi
+}
+
 # install lsb_release depending on os
 if [[ -z $(which lsb_release 2>&1|grep -v "which") ]]; then
-        if [[ $(subscription-manager status|grep "Overall Status"|awk {'print $3'}) = Current ]]; then
-                # install lsb_release
-                if [[ -f /usr/bin/dnf ]]; then
-                        /usr/bin/dnf install redhat-lsb -y
-                elif [[ -f /usr/bin/yum ]]; then
-                        /usr/bin/yum install redhat-lsb -y
-                elif [[ -f /usr/sbin/up2date ]]; then
-                        /usr/sbin/up2date -i -f redhat-lsb
-                fi
-                # distro
-                export os=$(lsb_release -si)
-                # version
-                export os_ver=$(lsb_release -sr|cut -d. -f1)
-                # arch
-                if [[ -n $(lsb_release -s|grep amd64) ]]; then
-                        export arch="x86_64"
-                else
-                        export arch="i386"
-                fi
+        if [[ -n $(rpm -q subscription-manager|grep ^subscription-manager) && $(subscription-manager status|grep "Overall Status"|awk {'print $3'}) = Current ]]; then
+                run_lsb_rls
+        elif [[ -z $(rpm -q subscription-manager|grep ^subscription-manager) ]]; then
+                run_lsb_rls
         else
                 export os=$(cat /etc/redhat-release|cut -d' ' -f1)
                 export os_ver=$(grep -o '[0-9].[0-9]' /etc/redhat-release|cut -d. -f1)
