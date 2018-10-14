@@ -37,7 +37,7 @@ if [[ -n "$2" ]]; then
 fi
 
 # set base download location
-URL="http://www.oracle.com"
+URL="https://www.oracle.com"
 DOWNLOAD_URL1="${URL}/technetwork/java/javase/downloads/index.html"
 DOWNLOAD_URL2=$(curl -s $DOWNLOAD_URL1 | egrep -o "\/technetwork\/java/\javase\/downloads\/${JAVA_TYPE}${JAVA_VERSION}-downloads-.*\.html" | head -1)
 
